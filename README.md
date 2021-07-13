@@ -1,1 +1,0 @@
-# konfigurator-rally-teamu
