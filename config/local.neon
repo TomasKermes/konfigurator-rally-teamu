@@ -1,0 +1,7 @@
+parameters:
+
+
+database:
+	dsn: 'mysql:host=mysql6.ebola.cz;dbname=involvedigitalcz_karel'
+	user: involvedig282_ka
+	password: mpmJvqX92NXm3YwL
