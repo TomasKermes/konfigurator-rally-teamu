@@ -1,0 +1,59 @@
+
+div.flash {
+	color: black;
+	background: #FFF9D7;
+	border: 1px solid #E2C822;
+	padding: 1em;
+	margin: 1em 0;
+}
+
+a[href^="#error:"] {
+	background: red;
+	color: white;
+}
+
+form th, form td {
+	vertical-align: top;
+	font-weight: normal;
+}
+
+form th {
+	text-align: right;
+}
+
+form .required label {
+	font-weight: bold;
+}
+
+form .error {
+	color: #D00;
+	font-weight: bold;
+}
+
+.btn-mainpage{
+	width: 120px;
+	margin: 10px;
+}
+
+.homepage-title{
+	padding-top: 20px;
+	padding-bottom: 400px;
+}
+
+.member-form-content{
+	padding: auto;
+}
+
+.team-form-content{
+	padding: auto;
+	display: flex;
+}
+
+.my-btn-delete{
+	width: 100px;
+}
+
+.spacer-row{
+	flex-grow: 1;
+}
+
