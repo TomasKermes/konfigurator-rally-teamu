@@ -1,0 +1,57 @@
+{layout '../@layout.latte'}
+
+{block content}
+<div class="row ">
+    <div class="col col col-md-10">
+        <h1  n:block="title">Formulář pro vytvoření člena týmu</h1>
+    </div>
+    <div class="col col col-md-2">
+        <a class="btn btn-outline btn-warning btn-mainpage" n:href="Homepage:">←Zpět</a>
+    </div>
+</div>
+
+
+
+<div class="row member-form-content">
+    <div class="row spacer-row"></div>
+    <div class="row">
+        <div class="col col-md-3"></div>
+        <div class="col col-md-3">
+            {control memberForm}
+        </div>
+
+        <div class="col col-md-6">
+
+            <div class="row">
+            <div class="col col-sm-1 d-flex align-items-center justify-content-center"><h6><strong>ID</strong></h6></div>
+                <div class="col col-sm-2 d-flex align-items-center justify-content-center"><h6><strong>Jméno</strong></h6></div>
+                <div class="col col-sm-2 d-flex align-items-center justify-content-center"><h6><strong>Příjmení</strong></h6></div>
+                <div class="col col-sm-2 d-flex align-items-center justify-content-center"><h6><strong>Specializace</strong></h6></div>
+                <div class="col col-sm-2 d-flex align-items-center justify-content-center"><h6><strong>Tým</strong></h6></div>
+            </div>
+            <div n:foreach="$members as $member" class="row member">
+                <div class="col col-sm-1 d-flex align-items-center justify-content-center">
+                    <h6>{$member->memberId}</h6>
+                </div>
+                <div class="col col-sm-2 d-flex align-items-center justify-content-center">
+                    <h6 >{$member->first_name}</h6> 
+                </div>
+                <div class="col col-sm-2 d-flex align-items-center justify-content-center">
+                    <h6 >{$member->last_name}</h6> 
+                </div>
+                <div class="col col-sm-2 d-flex align-items-center justify-content-center">
+                    <h6 >{$member->type}</h6> 
+                </div>
+                <div class="col col-sm-2 d-flex align-items-center justify-content-center">
+                    <h6 >{$member->team_name}</h6>
+                </div>
+                <div class="col col-sm-3 d-flex align-items-center justify-content-center">
+                    <a class="btn btn-outline btn-danger btn-mainpage" n:href="MemberForm:deleteMember $member->memberId">DELETE</a>
+                </div>      
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

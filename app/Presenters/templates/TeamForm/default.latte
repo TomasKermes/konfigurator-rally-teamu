@@ -1,0 +1,81 @@
+{layout '../@layout.latte'}
+
+{block content}
+<div class="row ">
+    <div class="col col-md-3"></div>
+    <div class="col col-md-3">
+ 
+    </div>
+    <div class="col col-md-10">
+        <h1  n:block="title">Formulář pro vytvoření týmů</h1>
+    </div>
+    <div class="col col-md-2">
+        <a class="btn btn-outline btn-warning btn-mainpage" n:href="Homepage:">←Zpět</a>
+    </div>
+</div>
+
+<div class="row member-form-content ">
+    <div class="col d-flex align-items-center justify-content-center">
+        {control teamForm}
+    </div>
+</div>
+
+<div class="row member-form-content">
+    <div class="col col-md-12">
+        <div class="row member">
+            <div class="col col-md-1 d-flex align-items-center justify-content-center"><h6><strong>Id týmu</strong></h6></div>
+            <div class="col col-md-1 d-flex align-items-center justify-content-center"><h6><strong>Název</strong></h6></div>
+            <div class="col col-md-2 d-flex align-items-center justify-content-center"><h6><strong>Závodníci</strong></h6></div>
+            <div class="col col-md-2 d-flex align-items-center justify-content-center"><h6><strong>Spolujezdci</strong></h6></div>
+            <div class="col col-md-2 d-flex align-items-center justify-content-center"><h6><strong>Technici</strong></h6></div>
+            <div class="col col-md-1 d-flex align-items-center justify-content-center"><h6><strong>Manažer</strong></h6></div>
+            <div class="col col-md-1 d-flex align-items-center justify-content-center"><h6><strong>Fotograf</strong></h6></div>
+        </div>
+        <div n:foreach="$teams as $team" class="row member">
+            <div class="col col-md-1 d-flex align-items-center justify-content-center">
+                <h6>{$team->id}</h6>
+            </div>
+            <div class="col col-md-1 d-flex align-items-center justify-content-center">
+                <h6 >{$team->name}</h6> 
+            </div>
+            <div class="col col-md-2 ">
+                <div n:foreach="$teamMembers as $teamMember" class="row">
+                    {if $teamMember->team_name == $team->name && $teamMember->type == 'závodník'}
+                        <h6 >{$teamMember->first_name} {$teamMember->last_name}</h6> 
+                    {/if}
+                </div>
+            </div>
+            <div class="col col-md-2">
+                <div n:foreach="$teamMembers as $teamMember" class="row">
+                    {if $teamMember->team_name == $team->name && $teamMember->type == 'spolujezdec'}
+                        <h6 >{$teamMember->first_name} {$teamMember->last_name}</h6> 
+                    {/if}
+                </div>
+            </div>
+            <div class="col col-md-2">
+                <div n:foreach="$teamMembers as $teamMember" class="row">
+                    {if $teamMember->team_name == $team->name && $teamMember->type == 'technik'}
+                        <h6 >{$teamMember->first_name} {$teamMember->last_name}</h6> 
+                    {/if}
+                </div>
+            </div>
+            <div class="col col-md-1 ">
+                <div n:foreach="$teamMembers as $teamMember" class="row">
+                    {if $teamMember->team_name == $team->name && $teamMember->type == 'manažer'}
+                        <h6 >{$teamMember->first_name} {$teamMember->last_name}</h6> 
+                    {/if}
+                </div>
+            </div>
+            <div class="col col-md-1 ">
+                <div n:foreach="$teamMembers as $teamMember" class="row">
+                    {if $teamMember->team_name == $team->name && $teamMember->type == 'fotograf'}
+                        <h6 >{$teamMember->first_name} {$teamMember->last_name}</h6> 
+                    {/if}
+                </div>
+            </div>
+            <div class="col col-md-2 ">  
+                <a class="btn btn-outline btn-danger btn-mainpage"  n:href="TeamForm:deleteTeam $team->id">DELETE</a>
+            </div>      
+        </div>
+    </div>
+</div>
